@@ -12,6 +12,9 @@ public class Deck {
 	private ArrayList<ArrayList<String>> cardList = new ArrayList<ArrayList<String>>();
 	private Random random = new Random();
 	
+	private int suite = 0;
+	private int cardNumber = 0;
+	
 	// Main:
 	public static void main(String[] args) {
 		Deck deck = new Deck();
@@ -77,17 +80,37 @@ public class Deck {
 		cardList.add(suiteHearts);
 		cardList.add(suiteSpades);
 		
-		Debug.log(cardList);
+		//Debug.log(cardList);
 	}
 	
 	// Gets a card from the card list array and return it.
-	public String GetCard() {
+	public void GetCard() {
 		// Get Suite:
-		int suite = random.nextInt(3 + 1);
+		suite = random.nextInt(3 + 1);
 		
 		// Get Card Number:
-		int cardNumber = random.nextInt(12 + 1);
+		cardNumber = random.nextInt(12 + 1);
 		
+		CheckCard();
+	}
+	
+	// Checks if the card has already been played.
+	private void CheckCard() {
+		// Redraw if the card is played:
+		if (((ArrayList) cardList.get(suite)).get(cardNumber).toString() == "") {
+			GetCard();
+			
+			Debug.log("Card already in play.");
+		}
+		// Play the card:
+		else
+		{
+			PlayCard();
+		}
+	}
+	
+	// Play the card.
+	private void PlayCard() {
 		// Get Card:
 		String card = ((ArrayList) cardList.get(suite)).get(cardNumber).toString();
 
@@ -98,9 +121,9 @@ public class Deck {
 		// cardList.get(suite).remove(cardNumber);
 		
 		Debug.log(card);
-		Debug.log(cardList);
+		//Debug.log(cardList);
 		
-		return card;
+		//return card;
 	}
 }
 

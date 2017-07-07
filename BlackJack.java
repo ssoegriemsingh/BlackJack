@@ -11,5 +11,10 @@ public class BlackJack {
 	public static void main(String[] args) {
 		Deck deck = new Deck();
 		deck.GetCard();
+		
+		// Test to see if CheckCard works:
+		for (int i = 0; i < 50; i++) {
+			deck.GetCard();
+		}
 	}
 }
