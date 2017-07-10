@@ -1,7 +1,5 @@
 // Import:
 import packages.*;
-import java.util.*;
-
 
 // Class:
 public class BlackJack {
@@ -10,7 +8,7 @@ public class BlackJack {
 	
 	// Variables:
 	Deck deck = new Deck();
-	Scanner scanner = new Scanner(System.in);
+	Dealer dealer = new Dealer();
 	
 	// Main:
 	public static void main(String[] args) {
@@ -19,14 +17,8 @@ public class BlackJack {
 	
 	// Constructor:
 	public BlackJack() {
-		greeting();
+		dealer.greeting();
 	}
 	
-	// Function: Make the player enter a name and display the greeting.
-	public void greeting() {
-		System.out.println("Enter your name:");
-		String p1 = scanner.next();
-		String greeting = p1 + ", lets play Black Jack!";
-		System.out.println(greeting);
-	}
+	
 }
