@@ -7,13 +7,17 @@ import java.util.*;
 
 // Class:
 public class Deck {
-	// Variables:
-	private static Debug debug = new Debug();
-	private ArrayList<ArrayList<String>> cardList = new ArrayList<ArrayList<String>>();
-	private Random random = new Random();
+	// Constants:
+	private static final Debug DEBUG = new Debug();
+	private final Random random = new Random();
 	
+	// Global private vars:
+	private ArrayList<ArrayList<String>> cardList = new ArrayList<ArrayList<String>>();
 	private int suite = 0;
 	private int cardNumber = 0;
+	
+	// Global public vars:
+	public String card;
 	
 	// Main:
 	public static void main(String[] args) {
@@ -80,7 +84,7 @@ public class Deck {
 		cardList.add(suiteHearts);
 		cardList.add(suiteSpades);
 		
-		//Debug.log(cardList);
+		//DEBUG.log(cardList);
 	}
 	
 	// Gets a card from the card list array and return it.
@@ -100,7 +104,7 @@ public class Deck {
 		if (((ArrayList) cardList.get(suite)).get(cardNumber).toString() == "") {
 			GetCard();
 			
-			Debug.log("Card already in play.");
+			DEBUG.log("Card already in play.");
 		}
 		// Play the card:
 		else
@@ -112,7 +116,7 @@ public class Deck {
 	// Play the card.
 	private void PlayCard() {
 		// Get Card:
-		String card = ((ArrayList) cardList.get(suite)).get(cardNumber).toString();
+		card = ((ArrayList) cardList.get(suite)).get(cardNumber).toString();
 
 		// Replace card:
 		cardList.get(suite).set(cardNumber, "");
@@ -120,8 +124,8 @@ public class Deck {
 		// Remove card:
 		// cardList.get(suite).remove(cardNumber);
 		
-		Debug.log(card);
-		//Debug.log(cardList);
+		//DEBUG.log(card);
+		//DEBUG.log(cardList);
 		
 		//return card;
 	}
