@@ -9,7 +9,7 @@ import java.util.*;
 public class Deck {
 	// Constants:
 	private static final Debug DEBUG = new Debug();
-	private final Random random = new Random();
+	private final Random RANDOM = new Random();
 	
 	// Global private vars:
 	private ArrayList<ArrayList<String>> cardList = new ArrayList<ArrayList<String>>();
@@ -25,12 +25,12 @@ public class Deck {
 	}
 	
 	public Deck() {
-		Shuffle();
-		//GetCard();
+		shuffle();
+		//getCard();
 	}
 	
 	// Creates the deck of cards.
-	public void Shuffle() {
+	public void shuffle() {
 		// Fills the card list array with the four different suites:
 		ArrayList<String> suiteClubs = new ArrayList<String>();
 		ArrayList<String> suiteDiamonds = new ArrayList<String>();
@@ -88,33 +88,33 @@ public class Deck {
 	}
 	
 	// Gets a card from the card list array and return it.
-	public void GetCard() {
+	public void getCard() {
 		// Get Suite:
-		suite = random.nextInt(3 + 1);
+		suite = RANDOM.nextInt(3 + 1);
 		
 		// Get Card Number:
-		cardNumber = random.nextInt(12 + 1);
+		cardNumber = RANDOM.nextInt(12 + 1);
 		
-		CheckCard();
+		checkCard();
 	}
 	
 	// Checks if the card has already been played.
-	private void CheckCard() {
+	private void checkCard() {
 		// Redraw if the card is played:
 		if (((ArrayList) cardList.get(suite)).get(cardNumber).toString() == "") {
-			GetCard();
+			getCard();
 			
 			DEBUG.log("Card already in play.");
 		}
 		// Play the card:
 		else
 		{
-			PlayCard();
+			playCard();
 		}
 	}
 	
 	// Play the card.
-	private void PlayCard() {
+	private void playCard() {
 		// Get Card:
 		card = ((ArrayList) cardList.get(suite)).get(cardNumber).toString();
 
