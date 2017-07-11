@@ -88,7 +88,7 @@ public class Deck {
 	}
 	
 	// Gets a card from the card list array and return it.
-	public void getCard() {
+	public String getCard() {
 		// Get Suite:
 		suite = RANDOM.nextInt(3 + 1);
 		
@@ -96,6 +96,8 @@ public class Deck {
 		cardNumber = RANDOM.nextInt(12 + 1);
 		
 		checkCard();
+		
+		return card;
 	}
 	
 	// Checks if the card has already been played.
@@ -114,7 +116,7 @@ public class Deck {
 	}
 	
 	// Play the card.
-	private void playCard() {
+	private String playCard() {
 		// Get Card:
 		card = ((ArrayList) cardList.get(suite)).get(cardNumber).toString();
 
@@ -127,7 +129,7 @@ public class Deck {
 		//DEBUG.log(card);
 		//DEBUG.log(cardList);
 		
-		//return card;
+		return card;
 	}
 }
 
