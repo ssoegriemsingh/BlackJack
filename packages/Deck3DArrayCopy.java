@@ -2,7 +2,7 @@
 package packages;
 
 // Imports
-import packages.*;
+import packages.Debug;
 import java.util.*;
 
 // Class:
@@ -12,7 +12,7 @@ public class Deck {
 	private final Random RANDOM = new Random();
 	
 	// Global private vars:
-	private ArrayList<ArrayList<String>> cardList = new ArrayList<ArrayList<String>>();
+	private List<List<List<String>>> cardList = new ArrayList<>();
 	private int suite = 0;
 	private int cardNumber = 0;
 	
@@ -32,48 +32,54 @@ public class Deck {
 	// Creates the deck of cards.
 	public void shuffle() {
 		// Fills the card list array with the four different suites:
-		ArrayList<String> suiteClubs = new ArrayList<String>();
-		ArrayList<String> suiteDiamonds = new ArrayList<String>();
-		ArrayList<String> suiteHearts = new ArrayList<String>();
-		ArrayList<String> suiteSpades = new ArrayList<String>();
+		List<List<String>> suiteClubs = new ArrayList<>();
+		List<List<String>> suiteDiamonds = new ArrayList<>();
+		List<List<String>> suiteHearts = new ArrayList<>();
+		List<List<String>> suiteSpades = new ArrayList<>();
+		
+		List<String> value = new ArrayList<>();
 		
 		// Fills the suite arrays with the thirteen different cards:
 		for(int i = 1; i < 14; i++) {
 			// Replaces the number 11 and higher cards with face cards:
 			switch(i){
 				case 1:
-				suiteClubs.add("AC");
-				suiteDiamonds.add("AD");
-				suiteHearts.add("AH");
-				suiteSpades.add("AS");
+				value.add(11 + "");
+				suiteClubs.add(value + "test");
+				// suiteClubs.add("AC");
+				// suiteDiamonds.add("AD");
+				// suiteHearts.add("AH");
+				// suiteSpades.add("AS");
 				break;
 
 				case 11:
-				suiteClubs.add("JC");
-				suiteDiamonds.add("JD");
-				suiteHearts.add("JH");
-				suiteSpades.add("JS");
+				// suiteClubs.add("JC");
+				// suiteDiamonds.add("JD");
+				// suiteHearts.add("JH");
+				// suiteSpades.add("JS");
 				break;
 				
 				case 12:
-				suiteClubs.add("QC");
-				suiteDiamonds.add("QD");
-				suiteHearts.add("QH");
-				suiteSpades.add("QS");
+				// suiteClubs.add("QC");
+				// suiteDiamonds.add("QD");
+				// suiteHearts.add("QH");
+				// suiteSpades.add("QS");
 				break;
 				
 				case 13:
-				suiteClubs.add("KC");
-				suiteDiamonds.add("KD");
-				suiteHearts.add("KH");
-				suiteSpades.add("KS");
+				// suiteClubs.add("KC");
+				// suiteDiamonds.add("KD");
+				// suiteHearts.add("KH");
+				// suiteSpades.add("KS");
 				break;
 				
 				default:
-				suiteClubs.add(i + "C");
-				suiteDiamonds.add(i + "D");
-				suiteHearts.add(i + "H");
-				suiteSpades.add(i + "S");
+				value.add(i + "");
+				suiteClubs.add(value);
+				// suiteClubs.add(i + "C");
+				// suiteDiamonds.add(i + "D");
+				// suiteHearts.add(i + "H");
+				// suiteSpades.add(i + "S");
 				break;
 			}
 		}
@@ -84,11 +90,13 @@ public class Deck {
 		cardList.add(suiteHearts);
 		cardList.add(suiteSpades);
 		
-		//DEBUG.log(cardList);
+		//cardList.get(0).add(new ArrayList());
+		
+		DEBUG.log(cardList);
 	}
 	
 	// Gets a card from the card list array and return it.
-	public String getCard() {
+	public void getCard() {
 		// Get Suite:
 		suite = RANDOM.nextInt(3 + 1);
 		
@@ -96,8 +104,6 @@ public class Deck {
 		cardNumber = RANDOM.nextInt(12 + 1);
 		
 		checkCard();
-		
-		return card;
 	}
 	
 	// Checks if the card has already been played.
@@ -116,12 +122,12 @@ public class Deck {
 	}
 	
 	// Play the card.
-	private String playCard() {
+	private void playCard() {
 		// Get Card:
 		card = ((ArrayList) cardList.get(suite)).get(cardNumber).toString();
 
 		// Replace card:
-		cardList.get(suite).set(cardNumber, "");
+		//cardList.get(suite).set(cardNumber, "");
 		
 		// Remove card:
 		// cardList.get(suite).remove(cardNumber);
@@ -129,7 +135,7 @@ public class Deck {
 		//DEBUG.log(card);
 		//DEBUG.log(cardList);
 		
-		return card;
+		//return card;
 	}
 }
 
