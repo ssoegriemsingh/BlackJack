@@ -43,7 +43,7 @@ public class Dealer {
 	}
 	
 	public String hit() {
-		System.out.println("HIT");
+		// System.out.println("HIT");
 		String card = deck.getCard();
 		return card;
 	}
