@@ -17,7 +17,6 @@ public class Debug {
 	public static void log(Object s) {
 		count++;
 		System.out.println("Log " + count + ":" + s);
-		//System.out.println("Log " + count + ":" + System.lineSeparator() + s);
 	}
 	
 	// Log arrays:

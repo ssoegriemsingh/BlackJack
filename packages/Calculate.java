@@ -21,6 +21,7 @@ public class Calculate {
 		
 	}
 	
+	// Function: Converts the strings to ints and adds them up.
 	public static int calc(List<String> stringArray) {
 		int total = 0;
 		

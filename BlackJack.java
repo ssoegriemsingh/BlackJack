@@ -22,9 +22,11 @@ public class BlackJack {
 		dealerTurn();
 	}
 	
+	// Function: Starts the game with a greeting and deals the starting hand.
 	private void startGame() {
 		dealer.greeting();
 		
+		// Deals the starting hand.
 		for (int i = 0; i < 2; i++) {
 			String dealerCard = dealer.hit();
 			String playerCard = dealer.hit();
@@ -32,10 +34,12 @@ public class BlackJack {
 			player.addCard(playerCard);
 		}
 		
+		// Shows the last card the dealer got and the cards the player has.
 		dealer.showing();
 		player.hand();
 	}
 	
+	// Function: Give the player the choice between hit and stand.
 	private void playerTurn() {
 		boolean playerTurn = true;
 		
@@ -54,6 +58,7 @@ public class BlackJack {
 		}
 	}
 	
+	// Function: Makes the dealer hit if he is behind.
 	private void dealerTurn() {
 		boolean dealerTurn = true;
 		
@@ -72,6 +77,7 @@ public class BlackJack {
 		checkDealer();
 	}
 	
+	// Function: Checks if the player busted after each hit.
 	private void checkPlayer() {
 		if(player.calculateHand() > 21) {
 			System.out.println("BUSTED! You lose.");
@@ -79,6 +85,7 @@ public class BlackJack {
 		}
 	}
 	
+	// Function: Checks the final score and displays results.
 	private void checkDealer() {
 		int dealerTotal = dealer.calculateHand();
 		int playerTotal = player.calculateHand();

@@ -3,9 +3,9 @@ package packages;
 
 // Imports:
 import java.util.*;
-
 import packages.Deck;
 
+// Class:
 public class Dealer {
 	// Constants:
 	private static final Debug DEBUG = new Debug();
@@ -14,13 +14,14 @@ public class Dealer {
 	
 	// Variables:
 	Deck deck = new Deck();
-	
 	private List<String> dealerHand = new ArrayList<>();
 
+	// Main:
 	public static void main (String[] args) {
 		Dealer dealer =  new Dealer();
 	}
 	
+	// Constructor:
 	public Dealer() {
 		
 	}
@@ -33,25 +34,28 @@ public class Dealer {
 		System.out.println(greeting);
 	}
 	
+	// Function: Adds a card to the dealers hand.
 	public void addCard(String card) {
 		dealerHand.add(card);
 	}
 	
+	// Function: Shows the last card the dealer got.
 	public void showing() {
-		// DEBUG.log(dealerHand);
 		System.out.println("Dealer is showing: " + dealerHand.get(1));
 	}
 	
+	// Function: Get a card from the deck.
 	public String hit() {
-		// System.out.println("HIT");
 		String card = deck.getCard();
 		return card;
 	}
 	
+	// Function: Asks the player hit or stand.
 	public void hitOrStand() {
 		System.out.println("Hit (h) or Stand (s)?");
 	}
 	
+	// Function: Checks to see if the dealer hits or stands.
 	public boolean checkCards(int playerTotal) {
 		int dealerTotal = calculateHand();
 		
@@ -66,6 +70,7 @@ public class Dealer {
 		}
 	}
 	
+	// Function: Calculates the total of the dealers hand.
 	public int calculateHand() {
 		int total = CALC.calc(dealerHand);
 		return total;
